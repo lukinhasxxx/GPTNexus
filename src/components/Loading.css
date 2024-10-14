@@ -1,0 +1,6 @@
+.loading-indicator {
+    text-align: center;
+    font-size: 20px;
+    color: #007bff; /* Blue color for loading */
+    margin-top: 20px;
+}
