@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import ChatApp from "./ChatApp";
 
 function App() {
-  return (
-   <div>
-     <ChatApp />
-   </div>
-  );
+    return (
+        <div>
+            <ChatApp />
+        </div>
+    );
 }
 
 export default App;
