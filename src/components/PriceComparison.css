@@ -1,0 +1,19 @@
+.price-comparison {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.price-comparison h3 {
+    margin-bottom: 10px;
+}
+
+.price-comparison ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.price-comparison li {
+    padding: 5px 0;
+}
