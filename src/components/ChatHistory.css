@@ -1,0 +1,35 @@
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+    color: #0f5132;
+}
+
+.gpt-message {
+    background-color: #f8d7da;
+    align-self: flex-start;
+    color: #842029;
+}
+
+@media (max-width: 768px) {
+    .message {
+        max-width: 80%;
+    }
+}
