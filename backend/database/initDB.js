@@ -4,7 +4,7 @@ async function createTable(options) {
     try {
         await client.connect(options);
         await client.query(`
-      CREATE TABLE IF NOT EXISTS logs (
+      CREATE TABLE IF NOT EXISTS lonpm i gs (
         cod_id SERIAL PRIMARY KEY,
         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         operation VARCHAR(50),

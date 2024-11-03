@@ -1,12 +1,13 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
-    host: 'host',
-    port: 'port',
-    database: 'banco',
-    user: 'usuario',
-    password: 'senha',
+// Configuração do Pool
+const pool = new Pool({
+    host: 'localhost',
+    port: 5432,
+    database: 'seu_banco',
+    user: 'seu_usuario',
+    password: 'sua_senha',
     ssl: { rejectUnauthorized: false },
 });
 
-module.exports = client;
+module.exports = pool;
