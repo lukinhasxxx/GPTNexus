@@ -52,4 +52,44 @@
 .new-search-button:hover {
   background-color: var(--button-hover);
 }
+/* Estilos globais para os botões de tema */
+.theme-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+  padding: 15px 0;
+}
+/* Transições de tema para o App */
+body, .App {
+  transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cores de fundo e texto */
+}
 
+/* Transição dos botões ao mudar de tema */
+.theme-button {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.3s ease; /* Suaviza cor e efeito ao clicar */
+}
+
+/* Efeito suave no fundo da janela de chat */
+.chat-container {
+  transition: background-color 0.4s ease, border 0.3s ease;
+}
+/* Ajustando a faixa de fundo dos botões */
+.theme-buttons {
+  background-color: transparent; /* Sem faixa de fundo */
+  padding: 10px;  /* Ajusta o espaçamento */
+}
+
+/* Botões com bordas arredondadas, sem a faixa de fundo */
+.theme-button {
+  border: 2px solid transparent;  /* Remover borda visível, mas manter arredondada */
+  background-color: transparent;  /* Fundo transparente */
+  padding: 12px 25px;  /* Ajusta o tamanho */
+  color: #fff;
+  transition: all 0.3s ease;  /* Transição suave ao interagir */
+}
+
+.theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);  /* Efeito hover */
+  border-color: #ffffff;
+  transform: scale(1.10);  /* Aumenta levemente ao passar o mouse */
+}
