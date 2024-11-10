@@ -1,6 +1,5 @@
 const pool = require('../database/config');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const axios = require('axios'); // para fazer requisição ao serviço externo
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -10,22 +9,43 @@ async function consultarGeminai(req, res) {
         model: 'gemini-1.5-flash'
     });
     const { prompt } = req.body;
+
     try {
         const result = await model.generateContent(prompt);
-        // Inserir um log no banco de dados após receber a resposta
-        const logQuery = `
-            INSERT INTO logs (operation, response, date)
-            VALUES ($1, $2, NOW())
-            RETURNING *;
-        `;
-
-        const logValues = ['consultarGeminai', await result.response.text()];
-        await pool.query(logQuery, logValues);
-        //res
-        res.json({ completion: result.response.text() });
+        const responseText = result.response.text();
+        await inserirLogNoBanco('consultar', prompt, responseText);
+        res.json({ completion: responseText });
     } catch (error) {
-        console.error('Erro ao consultar o Gemini:', error);
-        res.status(500).json({ error: 'Erro ao consultar o serviço externo' });
+        if (error.response) {
+            //trata erros da API Gemini
+            const statusCode = error.response.status;
+            const errorMessage = statusCode === 401
+                ? 'Erro de autenticação. Verifique a chave da API.'
+                : `Erro ao consultar o serviço externo: Código ${statusCode}`;
+            console.error('Erro ao consultar o Gemini:', errorMessage);
+            res.status(statusCode).json({ error: errorMessage });
+        } else {
+            //trata outros erros não relacionados à API Gemini (ex: banco de dados)
+            console.error('Erro interno do servidor:', error);
+            res.status(500).json({ error: 'Erro interno do servidor' });
+        }
+    }
+}
+
+//função para inserir o log no banco de dados
+async function inserirLogNoBanco(operation, prompt, response) {
+    const logQuery = `
+        INSERT INTO logs (operation, prompt, response, date)
+        VALUES ($1, $2, $3, NOW())
+        RETURNING *;
+    `;
+    const logValues = [operation, prompt, response];
+    try {
+        const result = await pool.query(logQuery, logValues);
+        console.log('Log inserido com sucesso:', result.rows[0]);
+    } catch (error) {
+        console.error('Erro ao inserir o log no banco de dados:', error);
+        throw new Error('Erro no banco de dados');
     }
 }
 
