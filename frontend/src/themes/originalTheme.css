@@ -1,0 +1,53 @@
+/* 
+  originalTheme.css
+
+  Este arquivo contém os estilos do tema original da aplicação.
+  Os estilos usam variáveis CSS para facilitar a manutenção e a 
+  personalização das cores e do layout.
+
+  O tema é gerenciado pelo Context API, permitindo alternar entre
+  diferentes temas sem a necessidade de passar props entre componentes.
+
+  Para modificar o tema original, ajuste as variáveis CSS abaixo.
+  As classes .theme-original e suas subclasses aplicam estilos
+  apenas quando o tema original está ativo.
+*/
+
+
+.theme-original {
+    --background-color: white;
+    --text-color: black;
+    --border-color: black;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --button-bg: beige;
+    --button-text: black;
+}
+
+/* Estilos base que usam as variáveis */
+.theme-original .chat-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 100%; /* Certifique-se de que ocupe toda a largura */
+    height: 100vh; /* Certifique-se de que ocupe toda a altura da tela */
+    display: flex; /* Para garantir que o conteúdo se ajuste */
+    flex-direction: column; /* Para empilhar os itens verticalmente */
+}
+
+.theme-original .chat-title {
+    color: var(--text-color);
+}
+
+.theme-original .chat-window {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 0px 10px var(--shadow-color);
+}
+
+.theme-original .chat-messages{
+    background-color: #e9ecef;
+}
+
+.theme-original .theme-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}

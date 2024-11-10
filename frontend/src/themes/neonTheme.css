@@ -1,0 +1,57 @@
+/* teste
+/* neonTheme.css */
+
+.theme-neon {
+    
+    --text-color: #0ff; /* Cor do texto do título */
+    --border-color: #0ff; /* Borda do chat */
+    --shadow-color: #0ff; /* Sombra do chat */
+    --button-bg: transparent; /* Fundo transparente */
+    --button-text: #39FF14; /* Cor do texto do botão */
+    
+}
+
+/* Estilos base que usam as variáveis */
+.theme-neon .chat-container {
+    background-color: #0a161b;
+    color: var(--text-color);
+    width: 100%; /* Certifique-se de que ocupe toda a largura */
+    height: 100vh; /* Certifique-se de que ocupe toda a altura da tela */
+    display: flex; /* Se ainda não estiver, para garantir que o conteúdo se ajuste */
+    flex-direction: column; /* Para empilhar os itens verticalmente */
+    
+}
+
+.theme-neon .chat-title {
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--text-color), 0 0 30px var(--text-color); /* Efeito neon */
+}
+
+.theme-neon .chat-window {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--border-color);
+    box-shadow: 0px 0px 20px var(--shadow-color);
+    border-radius: 15px;
+
+
+
+}
+
+
+.theme-neon .chat-messages {
+    background-color: #e9ecef; /* Azul claro diretamente */
+}
+
+
+.theme-neon .theme-button {
+    padding: 10px 20px;
+    color: var(--button-text);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 16px;
+    background: var(--button-bg);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}

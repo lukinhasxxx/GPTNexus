@@ -1,0 +1,94 @@
+.theme-dark {
+    --background-color: #1a1b1e;
+    --text-color: #e4e5e7;
+    --border-color: #2f3136;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --button-bg: #2b2d31;
+    --button-text: #ffffff;
+    --message-bg: #2f3136;
+    --user-message-bg: #3b3d42;
+    --gpt-message-bg: #2b2d31;
+    --user-message-color: #e4e5e7;
+    --gpt-message-color: #e4e5e7;
+    --input-bg: #2b2d31;
+    --input-border-color: #40444b;
+    --input-text-color: #ffffff;
+    --focus-border-color: #5865f2;
+    --hover-bg: #34363c;
+}
+
+.theme-dark .chat-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-dark .chat-title {
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-dark .chat-window {
+    background-color: var(--message-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 4px 12px var(--shadow-color);
+    border-radius: 12px;
+}
+
+.theme-dark .chat-messages {
+    background-color: var(--message-bg);
+}
+
+.theme-dark .message {
+    border: 1px solid var(--border-color);
+}
+
+.theme-dark .user-message {
+    background-color: var(--user-message-bg);
+    color: var(--user-message-color);
+}
+
+.theme-dark .gpt-message {
+    background-color: var(--gpt-message-bg);
+    color: var(--gpt-message-color);
+}
+
+.theme-dark .chat-input-container {
+    background-color: var(--input-bg);
+    border-color: var(--input-border-color);
+}
+
+.theme-dark .chat-input {
+    background-color: var(--input-bg);
+    color: var(--input-text-color);
+    border-color: var(--input-border-color);
+}
+
+.theme-dark .chat-input:focus {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.2);
+}
+
+.theme-dark .send-button {
+    background-color: var(--focus-border-color);
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.theme-dark .send-button:hover {
+    background-color: #4752c4;
+}
+
+.theme-dark .theme-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.theme-dark .theme-button:hover {
+    background-color: var(--hover-bg);
+}
