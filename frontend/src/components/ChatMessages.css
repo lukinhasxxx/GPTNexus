@@ -4,8 +4,11 @@
     padding: 20px;
     max-height: 70vh;
     overflow-y: auto;
-    background-color: #e9ecef;
+    background-color: var(--background-color, #87c1fc); /* Usando variável */
     border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .message {
@@ -17,19 +20,39 @@
 }
 
 .user-message {
-    background-color: #d1e7dd;
+    background-color: var(--user-message-bg, #d1e7dd); /* Usando variável */
     align-self: flex-end;
-    color: #0f5132;
+    color: var(--user-message-color, #0f5132); /* Usando variável */
 }
 
 .gpt-message {
-    background-color: #f8d7da;
+    background-color: var(--gpt-message-bg, #f8d7da); /* Usando variável */
     align-self: flex-start;
-    color: #842029;
+    color: var(--gpt-message-color, #842029); /* Usando variável */
+}
+/* Estilos para as barras de redimensionamento */
+.resize-bar {
+    position: absolute;
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: ns-resize;
+    z-index: 1;
 }
 
-@media (max-width: 768px) {
-    .message {
-        max-width: 80%;
-    }
+/* Barra vertical no canto inferior direito */
+.resize-bar-bottom-right {
+    bottom: 0;
+    right: 0;
+    height: 8px;
+    width: 8px;
+    border-radius: 5px;
+}
+
+/* Barra horizontal centralizada na parte inferior */
+.resize-bar-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 100px;
 }

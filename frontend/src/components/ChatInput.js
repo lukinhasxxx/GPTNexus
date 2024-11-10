@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ChatInput.css';
 
 const ChatInput = ({ onSend }) => {
-    const [message, setMessage] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
