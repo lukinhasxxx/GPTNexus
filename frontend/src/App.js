@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import ChatApp from "./ChatApp";
 import './themes/originalTheme.css';
 import './themes/neonTheme.css'; //temas neon dark etc que serao implementados
 import './themes/blueTheme.css';
 import './themes/darkTheme.css';
+import ChatApp from "./ChatApp";
 import { ThemeProvider, useTheme } from './ThemeContext';
 
 function ThemeButtons() {

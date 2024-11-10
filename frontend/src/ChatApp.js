@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ChatInput from './components/ChatInput';
 import ChatMessages from './components/ChatMessages';
 import GameInfo from './components/GameInfo';
+import { useTheme } from './ThemeContext';
 
 const ChatApp = () => {
+    const { theme } = useTheme();
     const [messages, setMessages] = useState([]);
     const [gameInfo, setGameInfo] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -71,13 +73,11 @@ const ChatApp = () => {
     };
 
     return (
-        <div className="container mt-4">
-            <h1 className="chat-title">Chat de Jogos</h1>
+        <div className={`chat-container theme-${theme}`}> {/* Aplicando o tema no container */}
+            <h1 className="chat-title">Explorador de jogos</h1>
             <div className="chat-window">
                 <ChatMessages messages={messages} />
-                {step === 0 || step === 1 ? ( // Permitir envio de mensagem para nome do jogo ou plataforma
-                    <ChatInput onSend={handleSend} />
-                ) : null}
+                {(step === 0 || step === 1) && <ChatInput onSend={handleSend} />}
                 {isLoading && <div className="loading">Carregando informações...</div>}
             </div>
             {gameInfo && (
