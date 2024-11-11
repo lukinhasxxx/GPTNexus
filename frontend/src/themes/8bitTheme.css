@@ -127,7 +127,7 @@
 .theme-8bit .chat-input {
     background-color: #203020;
     border: 3px solid #000;
-    color: #fff;
+    color: #a56565;
     font-family: 'Press Start 2P', monospace;
     font-size: 12px;
     padding: 10px;
@@ -211,4 +211,8 @@
 
 .theme-8bit .resize-bar {
     background-color: brown;
+}
+
+.theme-8bit .chat-input-container{
+    background-color: #218838;
 }
