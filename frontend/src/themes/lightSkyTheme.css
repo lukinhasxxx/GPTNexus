@@ -67,3 +67,39 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px var(--shadow-color);
 }
+
+.theme-lightsky .game-info {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #4299e1;
+    box-shadow: 0 6px 12px rgba(66, 153, 225, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+.theme-lightsky .game-info h2,
+.theme-lightsky .game-info h3 {
+    color: #2c5282;
+    margin-bottom: 15px;
+}
+
+.theme-lightsky .price-comparison {
+    background-color: #ebf8ff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.1);
+}
+.theme-lightsky .price-comparison th {
+    background-color: #4299e1;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+.theme-lightsky .price-comparison td {
+    border: 1px solid #bee3f8;
+    color: #2c5282;
+    padding: 12px;
+}
+.theme-lightsky .loading-indicator {
+    color: #4299e1;
+}

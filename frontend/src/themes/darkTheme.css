@@ -53,6 +53,44 @@
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.theme-dark .game-info {
+    background-color: #1e293b;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    color: #e2e8f0;
+}
+.theme-dark .price-comparison {
+    background-color: #334155;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.theme-dark .price-comparison th {
+    background-color: #2563eb;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.theme-dark .price-comparison td {
+    border: 1px solid #1e293b;
+    color: #e2e8f0;
+    padding: 12px;
+}
+
+.theme-dark .loading-indicator {
+    color: #3b82f6;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.theme-dark .game-info h2,
+.theme-dark .game-info h3 {
+    color: #3b82f6;
+    margin-bottom: 15px;
+}
 
 .theme-dark .chat-input-container {
     background-color: var(--input-bg);

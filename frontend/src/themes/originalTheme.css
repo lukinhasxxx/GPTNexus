@@ -89,3 +89,43 @@
 .theme-original .message.gpt-message{
     background-color: rgb(255, 255, 255);
 }
+
+.theme-original .game-info {
+    background-color: #ffffff;
+    border: 1px solid #34495e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    color: #2c3e50;
+}
+
+.theme-original .game-info h2,
+.theme-original .game-info h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.theme-original .price-comparison {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.theme-original .price-comparison th {
+    background-color: #34495e;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.theme-original .price-comparison td {
+    border: 1px solid #ecf0f1;
+    color: #2c3e50;
+    padding: 12px;
+}
+
+.theme-original .loading-indicator {
+    color: #34495e;
+}
+

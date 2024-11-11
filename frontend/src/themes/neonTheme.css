@@ -120,3 +120,80 @@
         0 0 20px rgba(57, 255, 20, 0.5),
         inset 0 0 20px rgba(57, 255, 20, 0.5);
 }
+
+.theme-neon .game-info {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    border-radius: 15px;
+    padding: 20px;
+    color: #0ff;
+}
+
+.theme-neon .game-info h2,
+.theme-neon .game-info h3 {
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    margin-bottom: 15px;
+}
+
+.theme-neon .price-comparison {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0ff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.theme-neon .price-comparison th {
+    background-color: rgba(57, 255, 20, 0.2);
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    padding: 12px;
+    border: 1px solid #39FF14;
+}
+
+.theme-neon .price-comparison td {
+    border: 1px solid #0ff;
+    color: #0ff;
+    padding: 12px;
+}
+
+.theme-neon .loading-indicator {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+.theme-neon .chat-input-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.theme-neon .chat-input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #0ff;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+.theme-neon .chat-input:focus {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.theme-neon .new-search {
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #39FF14;
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    box-shadow: 
+        0 0 10px rgba(57, 255, 20, 0.3),
+        inset 0 0 10px rgba(57, 255, 20, 0.3);
+}.theme-neon .new-search:hover {
+    background: rgba(57, 255, 20, 0.2);
+    box-shadow: 
+        0 0 20px rgba(57, 255, 20, 0.5),
+        inset 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
