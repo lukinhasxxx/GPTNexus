@@ -1,0 +1,57 @@
+.theme-lightsky{
+    --background-color: #f0f8ff;
+    --text-color: #2c5282;
+    --border-color: #4299e1;
+    --shadow-color: rgba(66, 153, 225, 0.2);
+    --button-bg: #ebf8ff;
+    --button-text: #2c5282;
+    --accent-color: #63b3ed;
+    --gradient-start: #ebf8ff;
+    --gradient-end: #bee3f8;
+}
+
+.theme-lightsky .chat-container {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-lightskye .chat-title {
+    color: var(--text-color);
+    font-size: 2.5em;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.theme-lightsky .chat-window {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.theme-lightsky .theme-button {
+    background: linear-gradient(to right, var(--accent-color), var(--border-color));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.theme-lightsky .theme-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
