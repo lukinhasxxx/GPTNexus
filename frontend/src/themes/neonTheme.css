@@ -25,6 +25,9 @@
 .theme-neon .chat-title {
     color: var(--text-color);
     text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--text-color), 0 0 30px var(--text-color); /* Efeito neon */
+    position:relative;
+    top: 65px;
+    font-size: 40px;
 }
 
 .theme-neon .chat-window {

@@ -6,6 +6,7 @@
   --button-hover: #218838;
   --text-color: white;
   --link-color: #61dafb;
+  --min-height: 100vh;
 }
 
 .App {
@@ -29,11 +30,13 @@
   color: var(--text-color);
 }
 
+
 .chat-window {
   padding: 10px;
   border-radius: 15px;
-  margin: 0 5%; /* Mantém margem lateral apenas para o chat */
+  margin: 0 10%; /* Mantém margem lateral apenas para o chat */
   margin-bottom: 10px;
+  margin-top:5%;
   background-color: var(--chat-background);
 }
 

@@ -4,6 +4,7 @@ import './themes/originalTheme.css';
 import './themes/neonTheme.css'; //temas neon dark etc que serao implementados
 import './themes/blueTheme.css';
 import './themes/darkTheme.css';
+import './themes/8bitTheme.css';
 import ChatApp from "./ChatApp";
 import { ThemeProvider, useTheme } from './ThemeContext';
 
@@ -23,6 +24,9 @@ function ThemeButtons() {
             <button className="theme-button dark" onClick={() => toggleTheme('dark')}>
                 Tema Escuro
             </button>
+            <button className="theme-button eight-bit" onClick={() => toggleTheme('8bit')}>
+    Tema 8-bit
+</button>
         </div>
     );
 }
