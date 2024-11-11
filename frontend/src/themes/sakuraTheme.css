@@ -1,0 +1,237 @@
+.theme-sakura {
+    --sakura-pink: #FFB7C5;
+    --sakura-dark: #DE8E9E;
+    --sky-blue: #87CEEB;
+    --leaf-green: #98FB98;
+    --wood-brown: #8B4513;
+    --text-color: #4A4A4A;
+    --message-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Container principal com céu e montanha ao fundo */
+.theme-sakura .chat-container {
+    background: linear-gradient(180deg, var(--sky-blue) 0%, #E0F7FF 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Montanha em silhueta no fundo */
+.theme-sakura .chat-container::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30vh;
+    background: linear-gradient(165deg, transparent 50%, #3f3f3f 50.5%);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+/* Título com efeito de pincel japonês */
+.theme-sakura .chat-title {
+    color: var(--text-color);
+    font-family: "Yu Mincho", serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    position: relative;
+    text-shadow: 2px 2px 4px var(--message-shadow);
+    animation: brushStroke 1s ease-out;
+}
+
+/* Janela do chat com fundo translúcido */
+.theme-sakura .chat-window {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    margin: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mensagens com estilo de papel washi */
+.theme-sakura .message {
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px var(--message-shadow);
+    transition: transform 0.3s ease;
+}
+
+.theme-sakura .user-message {
+    background: linear-gradient(45deg, white, #FFF0F5);
+    border-left: 4px solid var(--sakura-pink);
+}
+
+.theme-sakura .gpt-message {
+    background: linear-gradient(45deg, white, #F0F8FF);
+    border-left: 4px solid var(--sky-blue);
+}
+
+/* Botões com estilo de papel dobrado */
+.theme-sakura .theme-button {
+    background: white;
+    color: var(--text-color);
+    border: 2px solid var(--sakura-pink);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-family: "Yu Gothic", sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-sakura .theme-button:hover {
+    background: var(--sakura-pink);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--message-shadow);
+}
+
+/* Input com borda suave */
+.theme-sakura .chat-input {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--sakura-pink);
+    border-radius: 20px;
+    padding: 12px 20px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.theme-sakura .chat-input:focus {
+    box-shadow: 0 0 10px var(--sakura-pink);
+    border-color: var(--sakura-dark);
+}
+
+/* Folhas de sakura caindo */
+@keyframes falling {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.theme-sakura .chat-container::after {
+    content: "🌸";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 20px;
+    animation: falling 10s linear infinite;
+    z-index: 1;
+}
+
+/* Múltiplas pétalas em posições diferentes */
+.theme-sakura .chat-container::after {
+    content: "🌸";
+    animation: falling 7s linear infinite;
+    left: 10%;
+}
+
+.theme-sakura .chat-window::before {
+    content: "🌸";
+    position: absolute;
+    animation: falling 8s linear infinite;
+    left: 30%;
+}
+
+.theme-sakura .chat-window::after {
+    content: "🌸";
+    position: absolute;
+    animation: falling 6s linear infinite;
+    left: 70%;
+}
+
+/* Game info com estilo de pergaminho */
+.theme-sakura .game-info {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--sakura-pink);
+    padding: 20px;
+    margin: 20px;
+}
+
+.theme-sakura .game-info h2,
+.theme-sakura .game-info h3 {
+    color: var(--text-color);
+    font-family: "Yu Mincho", serif;
+    border-bottom: 2px solid var(--sakura-pink);
+    padding-bottom: 5px;
+}
+
+.theme-sakura .price-comparison {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--message-shadow);
+}
+
+.theme-sakura .price-comparison th {
+    background: var(--sakura-pink);
+    color: white;
+    padding: 12px;
+}
+
+.theme-sakura .price-comparison td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Barra de redimensionamento estilizada */
+.theme-sakura .resize-bar {
+    background: linear-gradient(90deg, var(--sakura-pink), var(--sky-blue));
+    height: 3px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.theme-sakura .resize-bar:hover {
+    opacity: 1;
+}
+
+/* Animação do efeito de pincel */
+@keyframes brushStroke {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Container de input com fundo suave */
+.theme-sakura .chat-input-container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-top: 2px solid var(--sakura-pink);
+    padding: 15px;
+}
+
+/* Botão de envio estilizado */
+.theme-sakura .send-button {
+    background: var(--sakura-pink);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-sakura .send-button:hover {
+    background: var(--sakura-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--message-shadow);
+}
