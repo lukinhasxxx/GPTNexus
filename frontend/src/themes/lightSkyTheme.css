@@ -48,6 +48,7 @@
     box-shadow: 0 6px 12px var(--shadow-color);
     border-radius: 15px;
     backdrop-filter: blur(5px);
+    margin-top: 2%;
 }
 
 .theme-lightsky .theme-button {
@@ -61,9 +62,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 2px 4px var(--shadow-color);
+    cursor:pointer;
 }
 
 .theme-lightsky .theme-button:hover {
+    background: linear-gradient(to right, var(--border-color), var(--accent-color));
     transform: translateY(-2px);
     box-shadow: 0 4px 8px var(--shadow-color);
 }
@@ -75,12 +78,40 @@
     border-radius: 15px;
     padding: 20px;
     backdrop-filter: blur(5px);
+    margin: 0 10%;
 }
 .theme-lightsky .game-info h2,
 .theme-lightsky .game-info h3 {
     color: #2c5282;
     margin-bottom: 15px;
 }
+
+.theme-lightsky .new-search-button {
+    margin-top: 20px;
+    padding: 8px 20px;  /* Menor padding vertical para ajustar a altura */
+    background: linear-gradient(to right, var(--accent-color), var(--border-color));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: inline-block; 
+    white-space: nowrap;    
+    height: auto;           
+    min-height: 40px;       
+}
+
+.theme-lightsky .new-search-button:hover {
+    background: linear-gradient(to right, var(--border-color), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
 
 .theme-lightsky .price-comparison {
     background-color: #ebf8ff;
@@ -103,3 +134,46 @@
 .theme-lightsky .loading-indicator {
     color: #4299e1;
 }
+
+.theme-lightsky .resize-bar-bottom{
+    background-color: #44baff;
+}  
+
+.theme-lightsky .send-button {
+    background: linear-gradient(to right, var(--accent-color), var(--border-color));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    cursor: pointer;
+}
+.theme-lightsky .send-button:hover {
+    background: linear-gradient(to right, var(--border-color), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.theme-lightsky .user-message {
+    background: rgba(66, 153, 225, 0.1);
+    color: var(--text-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+.theme-lightsky .gpt-message {
+    background: rgba(66, 153, 225, 0.15);
+    color: var(--text-color);
+    border-left: 4px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+

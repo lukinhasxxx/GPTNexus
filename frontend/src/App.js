@@ -49,7 +49,7 @@ function App() {
             
             // Calcula o deslocamento baseado na posição do mouse
             // Quando o mouse está no centro (50%), o deslocamento é 0
-            const offset = (mousePercent - 50) * 0.3;
+            const offset = (mousePercent - 50) * 0.7;
             
             // Aplica o efeito parallax nas imagens
             const sakuraImage = document.querySelector('.sakura-image');

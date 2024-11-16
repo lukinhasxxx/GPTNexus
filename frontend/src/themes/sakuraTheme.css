@@ -55,15 +55,21 @@
 
 /* Título com efeito de pincel japonês */
 .theme-sakura .chat-title {
-    color: var(--text-color);
+    color: white; /* Cor do texto */
     font-family: "Yu Mincho", serif;
     font-size: 2.5em;
     text-align: center;
     margin: 20px 0;
     padding: 10px;
     position: relative;
-    text-shadow: 2px 2px 4px var(--message-shadow);
-    animation: brushStroke 1s ease-out;
+    /* Efeito neon rosa fixo, essas camadas ''simulam'' neon */
+    text-shadow: 
+        0 0 5px #FFB7C5, /* brilho suave próximo */
+        0 0 15px #FFB7C5, /**/
+        0 0 10px #FFB7C5, /*  */
+        0 0 15px #FF1493, /* efeito de "neon" mais forte */
+        0 0 10px #FF1493, 
+        0 0 10px #FF1493;  /* brilho forte */
 }
 
 /* Janela do chat com fundo translúcido */
@@ -86,12 +92,12 @@
 }
 
 .theme-sakura .user-message {
-    background: linear-gradient(45deg, white, #FFF0F5);
+    background: linear-gradient(45deg, #d8ffe1, #FFF0F5);
     border-left: 4px solid var(--sakura-pink);
 }
 
 .theme-sakura .gpt-message {
-    background: linear-gradient(45deg, white, #F0F8FF);
+    background: linear-gradient(45deg, #ffcffad6, #F0F8FF);
     border-left: 4px solid var(--sky-blue);
 }
 
@@ -183,7 +189,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--sakura-pink);
     padding: 20px;
-    margin: 20px;
+    margin: 20px 7%;
+    position: relative;
+    z-index: 10;
 }
 
 .theme-sakura .game-info h2,
@@ -193,6 +201,17 @@
     border-bottom: 2px solid var(--sakura-pink);
     padding-bottom: 5px;
 }
+
+.theme-sakura .new-search-button {
+    background-color: #FFB7C5;
+    position:relative;
+    z-index: 10;
+}
+
+.theme-sakura .new-search-button:hover{
+opacity: 0.7;
+}
+
 
 .theme-sakura .price-comparison {
     background: white;

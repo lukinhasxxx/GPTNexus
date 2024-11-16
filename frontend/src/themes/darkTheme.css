@@ -7,7 +7,7 @@
     --button-text: #e2e8f0;
     --accent-color: #3b82f6;
     --message-bg: #1e293b;
-    --user-message-bg: #2563eb;
+    --user-message-bg: #1f4088;
     --gpt-message-bg: #334155;
 }
 
@@ -29,6 +29,7 @@
     border: 1px solid var(--border-color);
     box-shadow: 0 8px 16px var(--shadow-color);
     border-radius: 15px;
+    margin-top: 2%;
 }
 
 
@@ -60,6 +61,7 @@
     border-radius: 15px;
     padding: 20px;
     color: #e2e8f0;
+    margin: 20px 10%;
 }
 .theme-dark .price-comparison {
     background-color: #334155;
@@ -69,7 +71,7 @@
 }
 
 .theme-dark .price-comparison th {
-    background-color: #2563eb;
+    background-color: #23375f;
     color: #fff;
     padding: 12px;
     text-align: left;
@@ -112,6 +114,7 @@
     background-color: var(--focus-border-color);
     color: #ffffff;
     transition: all 0.2s ease;
+    border: solid 1px black;
 }
 
 .theme-dark .send-button:hover {
