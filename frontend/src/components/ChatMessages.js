@@ -29,24 +29,22 @@ const ChatMessages = ({ messages }) => {const chatRef = useRef(null);
     };
 
     return (
-        <div className="chat-messages" ref={chatRef}>
-            {messages.map((msg, index) => (
-                <div
-                    key={index}
-                    className={`message ${msg.sender === 'user' ? 'user-message' : 'gpt-message'}`}
-                >
-                    {msg.text}
-                </div>
-            ))}
+        <div className="chat-wrapper">
+    <div className="chat-messages" ref={chatRef}>
+        {messages.map((msg, index) => (
             <div
-                className="resize-bar resize-bar-bottom-right"
-                onMouseDown={handleResize}
-            ></div>
-            <div
-                className="resize-bar resize-bar-bottom"
-                onMouseDown={handleResize}
-            ></div>
-        </div>
+                key={index}
+                className={`message ${msg.sender === 'user' ? 'user-message' : 'gpt-message'}`}
+            >
+                {msg.text}
+            </div>
+        ))}
+    </div>
+    <div
+        className="resize-bar resize-bar-bottom"
+        onMouseDown={handleResize}
+    ></div>
+</div>
     );
 };
 
