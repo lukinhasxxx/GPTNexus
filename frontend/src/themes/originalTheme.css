@@ -130,3 +130,23 @@
 .theme-original .loading-indicator {
     color: #34495e;
 }
+.theme-original .new-search-button {
+    background-color: #ecf0f1; /* Cor de fundo do botão, adaptada ao tema */
+    color: #2c3e50; /* Cor do texto */
+    border: 2px solid #34495e; /* Cor da borda */
+    padding: 8px 18px; /* Tamanho do botão ajustado */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições */
+    cursor: pointer; /* Cursor de pointer */
+}
+
+/* Efeito ao passar o mouse */
+.theme-original .new-search-button:hover {
+    background-color: #34495e; /* Cor de fundo no hover */
+    color: #ffffff; /* Cor do texto no hover */
+    transform: translateY(-2px); /* Levantar o botão */
+}

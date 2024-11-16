@@ -41,6 +41,28 @@
     border: 1px solid var(--border-color);
 }
 
+.theme-dark .new-search-button {
+    background-color: #1e293b;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3), inset 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.theme-dark .new-search-button:hover {
+    background-color: #4752c4;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), inset 0 0 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+}
+
 .theme-dark .user-message {
     background-color: var(--user-message-bg);
     color: white;

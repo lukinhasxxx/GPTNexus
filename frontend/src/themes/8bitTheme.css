@@ -208,6 +208,23 @@
     cursor: pointer;
     transition: all 0.1s ease;
 }
+.theme-8bit .new-search-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        2px 2px 0px #000,
+        inset -2px -2px 0px #5b633d,
+        inset 2px 2px 0px #bbc78d;
+    background-color: #6e7a4b; /* Altere para uma cor mais escura ao passar o mouse */
+}
+
+.theme-8bit .new-search-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 
+        0px 0px 0px #000,
+        inset -2px -2px 0px #5b633d,
+        inset 2px 2px 0px #bbc78d;
+}
+
 
 .theme-8bit .resize-bar {
     background-color: brown;
