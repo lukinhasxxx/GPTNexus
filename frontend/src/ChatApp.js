@@ -13,6 +13,49 @@ const ChatApp = () => {
     const [gameName, setGameName] = useState(""); // Para armazenar o nome do jogo
 
     useEffect(() => {
+        if (theme === 'sakura') { // Verifica se o tema é "sakura"
+            // Adiciona os elementos de background para o parallax
+            const container = document.querySelector('.chat-container');
+            if (!container) return;
+
+            // Adiciona a imagem de Sakura ao fundo, caso ainda não tenha sido adicionada
+            if (!document.querySelector('.sakura-image')) {
+                const sakuraImg = document.createElement('div');
+                sakuraImg.className = 'sakura-image';
+                container.appendChild(sakuraImg);
+            }
+            
+            // Adiciona a imagem do Monte Fuji ao fundo, caso ainda não tenha sido adicionada
+            if (!document.querySelector('.fuji-image')) {
+                const fujiImg = document.createElement('div');
+                fujiImg.className = 'fuji-image';
+                container.appendChild(fujiImg);
+            }
+
+            // Função para criar pétalas flutuantes
+            const createPetal = () => {
+                const petal = document.createElement('div');
+                petal.className = 'sakura-petal';
+                petal.style.left = `${Math.random() * 100}vw`; // Posição aleatória na tela
+                petal.style.animationDuration = `${Math.random() * 3 + 4}s`; // Duração aleatória da animação
+                petal.style.animationDelay = `${Math.random() * 5}s`; // Atraso aleatório da animação
+                container.appendChild(petal);
+                
+                petal.addEventListener('animationend', () => {
+                    petal.remove(); // Remove a pétala após o fim da animação
+                    createPetal(); // Cria uma nova pétala
+                });
+            };
+
+            // Cria 15 pétalas iniciais
+            for (let i = 0; i < 15; i++) {
+                createPetal();
+            }
+        }
+    }, [theme]);
+
+
+    useEffect(() => {
         // Exibir a primeira pergunta assim que o componente montar
         const initialQuestion = { sender: 'gpt', text: "Qual é o nome do jogo?" };
         setMessages([initialQuestion]);
