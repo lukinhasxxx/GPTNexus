@@ -10,24 +10,20 @@
 
 /* Container principal com céu e montanha ao fundo */
 .theme-sakura .chat-container {
-    background: linear-gradient(180deg, var(--sky-blue) 0%, #E0F7FF 100%);
+    background: url('/src/images/sakuraImage.png') no-repeat center center,  
+                url('/src/images/fujiImage.png') no-repeat right 85%, 
+                linear-gradient(180deg, var(--sky-blue) 0%, #E0F7FF 100%);
+    background-size: 55% auto, /* tamanho da sakura*/
+                    40% auto,  /* tamanho do fuji */
+                    100% 100%;
+    background-position: 20% center, /*sakura pras laterais*/
+                        98% 25%,  /* fuji mais pra direita e um pouco mais acima ou pra baixo respectivamente*/
+                        center center;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
 }
 
-/* Montanha em silhueta no fundo */
-.theme-sakura .chat-container::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30vh;
-    background: linear-gradient(165deg, transparent 50%, #3f3f3f 50.5%);
-    opacity: 0.1;
-    z-index: 1;
-}
 
 /* Título com efeito de pincel japonês */
 .theme-sakura .chat-title {
@@ -44,7 +40,7 @@
 
 /* Janela do chat com fundo translúcido */
 .theme-sakura .chat-window {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -234,4 +230,12 @@
     background: var(--sakura-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px var(--message-shadow);
+}
+
+.theme-sakura .chat-messages {
+background-color: rgba(135, 193, 252, 0.5);
+}
+
+.theme-sakura .theme-buttons{
+    background-color:#87ceeb ;
 }

@@ -65,6 +65,7 @@
 /* Transições de tema para o App */
 body, .App {
   transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cores de fundo e texto */
+  
 }
 
 /* Transição dos botões ao mudar de tema */
@@ -96,3 +97,4 @@ body, .App {
   border-color: #ffffff;
   transform: scale(1.10);  /* Aumenta levemente ao passar o mouse */
 }
+
