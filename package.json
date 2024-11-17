@@ -1,0 +1,11 @@
+{
+  "name": "gemininenexus",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm start --prefix backend\" \"npm start --prefix frontend\"",
+    "install": "npm install --prefix back && npm install --prefix front"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
