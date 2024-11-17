@@ -1,11 +1,35 @@
 {
   "name": "gemininenexus",
   "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "start": "concurrently \"npm start --prefix backend\" \"npm start --prefix frontend\"",
-    "install": "npm install --prefix back && npm install --prefix front"
+    "start": "concurrently \"npm start --workspace backend\" \"npm start --workspace frontend\"",
+    "install": "npm install",
+    "start:backend": "npm start --workspace backend",
+    "start:frontend": "npm start --workspace frontend"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "http-proxy-middleware": "^3.0.3",
+    "nock": "^13.5.5",
+    "pg": "^8.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   }
 }
