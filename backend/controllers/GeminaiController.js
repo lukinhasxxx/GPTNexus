@@ -11,6 +11,12 @@ async function consultarGeminai(req, res) {
     const { prompt } = req.body;
 
     try {
+        if (!prompt || prompt.trim() === "") {
+            // Se estiver vazio, retorne um erro com status 400
+            return res.status(400).json({
+                message: "O campo 'prompt' é obrigatório e não pode estar vazio."
+            });
+        }
         const result = await model.generateContent(prompt);
         const responseText = result.response.text();
         await inserirLogNoBanco('consultar', prompt, responseText);

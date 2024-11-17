@@ -1,135 +1,217 @@
 import React, { useState, useEffect } from 'react';
 import ChatInput from './components/ChatInput';
 import ChatMessages from './components/ChatMessages';
-import GameInfo from './components/GameInfo';
+import GameSuggestion from './components/GameSuggestion';
+import GameGuide from './components/GameGuide';
 import { useTheme } from './ThemeContext';
+import { onBuscaApi } from './network/OnBuscaApi';
 
 const ChatApp = () => {
     const { theme } = useTheme();
     const [messages, setMessages] = useState([]);
     const [gameInfo, setGameInfo] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [step, setStep] = useState(0); // Para controlar as etapas do chat
-    const [gameName, setGameName] = useState(""); // Para armazenar o nome do jogo
+    const [step, setStep] = useState(0);
+    const [gameName, setGameName] = useState("");
+    const [genre, setGenre] = useState("");
+    const [option, setOption] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
+    const [showComponent, setShowComponent] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (theme === 'sakura') { // Verifica se o tema é "sakura"
-            // Adiciona os elementos de background para o parallax
-            const container = document.querySelector('.chat-container');
-            if (!container) return;
-
-            // Adiciona a imagem de Sakura ao fundo, caso ainda não tenha sido adicionada
-            if (!document.querySelector('.sakura-image')) {
-                const sakuraImg = document.createElement('div');
-                sakuraImg.className = 'sakura-image';
-                container.appendChild(sakuraImg);
-            }
-            
-            // Adiciona a imagem do Monte Fuji ao fundo, caso ainda não tenha sido adicionada
-            if (!document.querySelector('.fuji-image')) {
-                const fujiImg = document.createElement('div');
-                fujiImg.className = 'fuji-image';
-                container.appendChild(fujiImg);
-            }
-
-            // Função para criar pétalas flutuantes
-            const createPetal = () => {
-                const petal = document.createElement('div');
-                petal.className = 'sakura-petal';
-                petal.style.left = `${Math.random() * 100}vw`; // Posição aleatória na tela
-                petal.style.animationDuration = `${Math.random() * 3 + 4}s`; // Duração aleatória da animação
-                petal.style.animationDelay = `${Math.random() * 5}s`; // Atraso aleatório da animação
-                container.appendChild(petal);
-                
-                petal.addEventListener('animationend', () => {
-                    petal.remove(); // Remove a pétala após o fim da animação
-                    createPetal(); // Cria uma nova pétala
-                });
-            };
-
-            // Cria 15 pétalas iniciais
-            for (let i = 0; i < 15; i++) {
-                createPetal();
-            }
-        }
-    }, [theme]);
-
-
-    useEffect(() => {
-        // Exibir a primeira pergunta assim que o componente montar
-        const initialQuestion = { sender: 'gpt', text: "Qual é o nome do jogo?" };
+        const initialQuestion = {
+            sender: 'giminine',
+            text: "Você gostaria de um guia de jogo ou uma sugestão de jogo?"
+        };
         setMessages([initialQuestion]);
     }, []);
 
-    const handleSend = (message) => {
-        const userMessage = { sender: 'user', text: message };
-        setMessages((prevMessages) => [...prevMessages, userMessage]);
+    const processResponse = async (option, value) => {
+        try {
+            if (option === "guia") {
+                const guideData = await onBuscaApi(value, "guide", setIsLoading, setError);
+                console.log("Dados do guia recebidos da API:", guideData);
 
-        setIsLoading(true);
+                // Verifica se os dados estão no formato esperado
+                if (typeof guideData === 'string') {
+                    try {
+                        const parsedData = JSON.parse(guideData);
+                        setGameInfo(parsedData);
+                    } catch (e) {
+                        console.error("Erro ao fazer parse dos dados do guia:", e);
+                        setError("Erro ao processar os dados do jogo");
+                        return;
+                    }
+                } else {
+                    setGameInfo(guideData);
+                }
+                setShowComponent(true);
+            } else if (option === "sugestao") {
+                const suggestionsData = await onBuscaApi(value, "suggestion", setIsLoading, setError);
+                console.log("Dados de sugestões recebidos da API:", suggestionsData);
 
-        setTimeout(() => {
-            let gptMessage;
-
-            if (step === 0) {
-                // Armazena o nome do jogo
-                setGameName(message);
-                // Pergunta sobre a plataforma após o nome do jogo
-                gptMessage = { sender: 'gpt', text: `Ótimo! Agora, qual plataforma você está usando para jogar "${message}"?` };
-                setStep(1); // Avançar para a próxima etapa
-            } else {
-                // Aqui você pode definir as informações do jogo para exibir
-                const platform = message; // A plataforma é a resposta do usuário
-                const gameInfoData = {
-                    title: gameName, // Usa o nome do jogo armazenado
-                    platform: platform,
-                    priceComparison: [
-                        { store: "Steam", price: "$29.99" },
-                        { store: "Epic Games", price: "$19.99" },
-                    ],
-                    tips: "Dica: Sempre verifique as avaliações antes de comprar o jogo!",
-                    routes: "Para avançar, você pode explorar a loja Steam ou a Epic Games.",
-                };
-
-                setGameInfo(gameInfoData);
-
-                // Exibir mensagem final com as informações do jogo
-                gptMessage = { sender: 'gpt', text: `Aqui estão as informações para o jogo "${gameInfoData.title}".` };
-                setStep(2); // Avançar para a etapa de informações do jogo
+                // Verifica se os dados estão no formato esperado
+                if (typeof suggestionsData === 'string') {
+                    try {
+                        const parsedData = JSON.parse(suggestionsData);
+                        if (parsedData.games && Array.isArray(parsedData.games)) {
+                            setSuggestions(parsedData.games);
+                        } else {
+                            console.error("Dados de sugestões não contêm array de jogos:", parsedData);
+                            setError("Formato de dados de sugestões inválido");
+                            return;
+                        }
+                    } catch (e) {
+                        console.error("Erro ao fazer parse dos dados de sugestões:", e);
+                        setError("Erro ao processar as sugestões de jogos");
+                        return;
+                    }
+                } else if (suggestionsData.games && Array.isArray(suggestionsData.games)) {
+                    setSuggestions(suggestionsData.games);
+                } else {
+                    console.error("Formato de dados de sugestões inválido:", suggestionsData);
+                    setError("Formato de dados de sugestões inválido");
+                    return;
+                }
+                setShowComponent(true);
             }
+        } catch (error) {
+            let errorMessage;
+            if (error.response) {
+                const status = error.response.status;
+                if (status === 400) {
+                    errorMessage = {
+                        sender: 'giminine',
+                        text: "Houve um erro na sua solicitação. Por favor, verifique os dados e tente novamente."
+                    };
+                } else if (status === 500) {
+                    errorMessage = {
+                        sender: 'giminine',
+                        text: "Desculpe, houve um erro no servidor. Tente novamente mais tarde."
+                    };
+                } else {
+                    errorMessage = {
+                        sender: 'giminine',
+                        text: "Desculpe, ocorreu um erro inesperado. Tente novamente."
+                    };
+                }
+            } else if (error.request) {
+                errorMessage = {
+                    sender: 'giminine',
+                    text: "Desculpe, não conseguimos se comunicar com o servidor. Tente novamente mais tarde."
+                };
+            } else {
+                errorMessage = {
+                    sender: 'giminine',
+                    text: "Desculpe, ocorreu um erro desconhecido. Tente novamente mais tarde."
+                };
+            }
+            setMessages(prev => [...prev, errorMessage]);
+            setShowComponent(false);
+        }
+    };
 
-            setMessages((prevMessages) => [...prevMessages, gptMessage]);
+    const handleSend = async (message) => {
+        const userMessage = { sender: 'user', text: message };
+        setMessages(prev => [...prev, userMessage]);
+
+        try {
+            if (step === 0) {
+                const lowercaseMsg = message.toLowerCase();
+                if (lowercaseMsg === "guia" || lowercaseMsg === "sugestão" || lowercaseMsg === "sugestao") {
+                    setOption(lowercaseMsg === "guia" ? "guia" : "sugestao");
+                    const nextQuestion = lowercaseMsg === "guia"
+                        ? "Qual é o nome do jogo que você quer o guia?"
+                        : "Qual gênero de jogo você prefere (ação, aventura, RPG, etc)?";
+
+                    const gptMessage = { sender: 'giminine', text: nextQuestion };
+                    setMessages(prev => [...prev, gptMessage]);
+                    setStep(1);
+                } else {
+                    const gptMessage = {
+                        sender: 'giminine',
+                        text: "Por favor, responda apenas 'guia' ou 'sugestão'."
+                    };
+                    setMessages(prev => [...prev, gptMessage]);
+                }
+            } else if (step === 1) {
+                setIsLoading(true);
+                if (option === "guia") {
+                    setGameName(message);
+                    await processResponse("guia", message);
+                } else {
+                    setGenre(message);
+                    await processResponse("sugestao", message);
+                }
+                setIsLoading(false);
+            }
+        } catch (error) {
+            console.error("Erro ao processar mensagem:", error);
+            const errorMessage = {
+                sender: 'giminine',
+                text: "Desculpe, ocorreu um erro ao processar sua solicitação."
+            };
+            setMessages(prev => [...prev, errorMessage]);
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
     const handleNewSearch = () => {
-        // Reinicia todos os estados para permitir uma nova busca
         setMessages([]);
         setGameInfo(null);
+        setSuggestions([]);
         setIsLoading(false);
         setStep(0);
         setGameName("");
+        setGenre("");
+        setOption("");
+        setShowComponent(false);
+        setError(null);
 
-        // Reexibir a pergunta inicial
-        const initialQuestion = { sender: 'gpt', text: "Qual é o nome do jogo?" };
+        const initialQuestion = {
+            sender: 'giminine',
+            text: "Você gostaria de um guia de jogo ou uma sugestão de jogo?"
+        };
         setMessages([initialQuestion]);
     };
 
     return (
-        <div className={`chat-container theme-${theme}`}> {/* Aplicando o tema no container */}
+        <div className={`chat-container theme-${theme}`}>
             <h1 className="chat-title">Explorador de jogos</h1>
             <div className="chat-window">
                 <ChatMessages messages={messages} />
-                {(step === 0 || step === 1) && <ChatInput onSend={handleSend} />}
-                {isLoading && <div className="loading">Carregando informações...</div>}
+                {!showComponent && <ChatInput onSend={handleSend} disabled={isLoading} />}
+                {isLoading && (
+                    <div className="loading-container">
+                        <div className="loading-spinner"></div>
+                        <p>Buscando informações...</p>
+                    </div>
+                )}
+                {error && <div className="error-message">{error}</div>}
             </div>
-            {gameInfo && (
-                <>
-                    <GameInfo gameInfo={gameInfo} />
-                    <button className="new-search-button" onClick={handleNewSearch}>
+
+            {showComponent && (
+                <div className="result-container">
+                    {option === "guia" && gameInfo && (
+                        <>
+                            {console.log("Renderizando GameGuide com dados:", gameInfo)}
+                            <GameGuide game={gameInfo} />
+                        </>
+                    )}
+                    {option === "sugestao" && suggestions.length > 0 && (
+                        <>
+                            {console.log("Renderizando GameSuggestion com dados:", suggestions)}
+                            <GameSuggestion games={suggestions} />
+                        </>
+                    )}
+                    <button
+                        className="new-search-button"
+                        onClick={handleNewSearch}
+                    >
                         Fazer nova busca
                     </button>
-                </>
+                </div>
             )}
         </div>
     );
