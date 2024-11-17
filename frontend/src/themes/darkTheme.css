@@ -1,0 +1,173 @@
+.theme-dark {
+    --background-color: #0f172a;
+    --text-color: #e2e8f0;
+    --border-color: #1e293b;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --button-bg: #1e293b;
+    --button-text: #e2e8f0;
+    --accent-color: #3b82f6;
+    --message-bg: #1e293b;
+    --user-message-bg: #1f4088;
+    --gpt-message-bg: #334155;
+}
+
+
+
+.theme-dark .chat-title {
+    color: var(--text-color);
+    font-size: 2.5em;
+    text-align: center;
+    padding: 20px;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 10px;
+    margin: 20px;
+    border-bottom: 3px solid var(--accent-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.theme-dark .chat-window {
+    background-color: var(--message-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    border-radius: 15px;
+    margin-top: 2%;
+}
+
+
+.theme-dark .chat-messages {
+    background-color: var(--message-bg);
+}
+
+.theme-dark .message {
+    border: 1px solid var(--border-color);
+}
+
+.theme-dark .new-search-button {
+    background-color: #1e293b;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3), inset 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.theme-dark .new-search-button:hover {
+    background-color: #4752c4;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), inset 0 0 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+.theme-dark .user-message {
+    background-color: var(--user-message-bg);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-dark .gpt-message {
+    background-color: var(--gpt-message-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.theme-dark .game-info {
+    background-color: #1e293b;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 20px;
+    color: #e2e8f0;
+    margin: 20px 10%;
+}
+.theme-dark .price-comparison {
+    background-color: #334155;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.theme-dark .price-comparison th {
+    background-color: #23375f;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.theme-dark .price-comparison td {
+    border: 1px solid #1e293b;
+    color: #e2e8f0;
+    padding: 12px;
+}
+
+.theme-dark .loading-indicator {
+    color: #3b82f6;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.theme-dark .game-info h2,
+.theme-dark .game-info h3 {
+    color: #3b82f6;
+    margin-bottom: 15px;
+}
+
+.theme-dark .chat-input-container {
+    background-color: var(--input-bg);
+    border-color: var(--input-border-color);
+}
+
+.theme-dark .chat-input {
+    background-color: var(--input-bg);
+    color: rgb(172, 167, 167);
+    border-color: var(--input-border-color);
+}
+
+.theme-dark .chat-input:focus {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.2);
+}
+
+.theme-dark .send-button {
+    background-color: var(--focus-border-color);
+    color: #ffffff;
+    transition: all 0.2s ease;
+    border: solid 1px black;
+}
+
+.theme-dark .send-button:hover {
+    background-color: #4752c4;
+}
+
+.theme-dark .theme-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--accent-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.theme-dark .theme-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(59, 130, 246, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.theme-dark .theme-button:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+.theme-dark .theme-button:hover {
+    background-color: var(--hover-bg);
+}

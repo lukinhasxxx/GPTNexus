@@ -1,0 +1,152 @@
+/* 
+  originalTheme.css
+
+  Este arquivo contém os estilos do tema original da aplicação.
+  Os estilos usam variáveis CSS para facilitar a manutenção e a 
+  personalização das cores e do layout.
+
+  O tema é gerenciado pelo Context API, permitindo alternar entre
+  diferentes temas sem a necessidade de passar props entre componentes.
+
+  Para modificar o tema original, ajuste as variáveis CSS abaixo.
+  As classes .theme-original e suas subclasses aplicam estilos
+  apenas quando o tema original está ativo.
+*/
+
+
+.theme-original {
+    --background-color: #f5f5f5;
+    --text-color: #2c3e50;
+    --border-color: #34495e;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-bg: #ecf0f1;
+    --button-text: #2c3e50;
+    --message-bg: #ffffff;
+    --user-message-bg: #d5e9dd;
+    --gpt-message-bg: #e9e9e9;
+}
+
+/* Estilos base que usam as variáveis */
+.theme-original .chat-container {
+    background-color: var(--background-color);
+    background-image: 
+        radial-gradient(circle at 100% 150%, #f5f5f5 24%, #ffffff 24%, #ffffff 28%, #f5f5f5 28%, #f5f5f5 36%, #ffffff 36%, #ffffff 40%, transparent 40%, transparent),
+        radial-gradient(circle at 0 150%, #f5f5f5 24%, #ffffff 24%, #ffffff 28%, #f5f5f5 28%, #f5f5f5 36%, #ffffff 36%, #ffffff 40%, transparent 40%, transparent),
+        radial-gradient(circle at 50% 100%, #ffffff 10%, #f5f5f5 10%, #f5f5f5 23%, #ffffff 23%, #ffffff 30%, #f5f5f5 30%, #f5f5f5 43%, #ffffff 43%, #ffffff 50%, #f5f5f5 50%, #f5f5f5 63%, #ffffff 63%, #ffffff 71%, transparent 71%, transparent);
+    background-size: 80px 40px;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-original .chat-title {
+    color: var(--text-color);
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-bottom: 3px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.theme-original .chat-window {
+    background-color: var(--message-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border-radius: 10px;
+    margin: 20px 7%;
+    transition: box-shadow 0.3s ease;
+
+}
+
+.theme-original .chat-window:hover {
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.theme-original .chat-messages{
+    background-color: rgb(233 245 255)
+}
+
+.theme-original .theme-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 2px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.theme-original .theme-button:hover {
+    background-color: var(--border-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.theme-original .message.gpt-message{
+    background-color: rgb(255, 255, 255);
+}
+
+.theme-original .game-info {
+    background-color: #ffffff;
+    border: 1px solid #34495e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    color: #2c3e50;
+    margin: 20px 7%;
+}
+
+.theme-original .game-info h2,
+.theme-original .game-info h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.theme-original .price-comparison {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.theme-original .price-comparison th {
+    background-color: #34495e;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.theme-original .price-comparison td {
+    border: 1px solid #ecf0f1;
+    color: #2c3e50;
+    padding: 12px;
+}
+
+.theme-original .loading-indicator {
+    color: #34495e;
+}
+.theme-original .new-search-button {
+    background-color: #ecf0f1; /* Cor de fundo do botão, adaptada ao tema */
+    color: #2c3e50; /* Cor do texto */
+    border: 2px solid #34495e; /* Cor da borda */
+    padding: 8px 18px; /* Tamanho do botão ajustado */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições */
+    cursor: pointer; /* Cursor de pointer */
+}
+
+/* Efeito ao passar o mouse */
+.theme-original .new-search-button:hover {
+    background-color: #34495e; /* Cor de fundo no hover */
+    color: #ffffff; /* Cor do texto no hover */
+    transform: translateY(-2px); /* Levantar o botão */
+}

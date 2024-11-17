@@ -1,0 +1,234 @@
+/* teste
+/* neonTheme.css */
+
+.theme-neon {
+    
+    --text-color: #0ff;
+    --border-color: #0ff;
+    --shadow-color: #0ff;
+    --button-bg: rgba(0, 255, 255, 0.1);
+    --button-text: #39FF14;
+    --user-message-bg: rgba(57, 255, 20, 0.2);
+    --gpt-message-bg: rgba(0, 255, 255, 0.2);
+    --user-message-color: #39FF14;
+    --gpt-message-color: #0ff;
+}
+
+/* Estilos base que usam as variáveis */
+.theme-neon .chat-container {
+    background-color: #0a161b;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+    color: var(--text-color);
+    min-height: 100vh;
+    
+}
+
+.theme-neon .chat-title {
+    color: var(--text-color);
+    text-shadow: 
+        0 0 10px var(--text-color),
+        0 0 20px var(--text-color),
+        0 0 30px var(--text-color);
+    font-size: 3em;
+    text-align: center;
+    margin: 40px 0;
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+.theme-neon .chat-window {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--border-color);
+    box-shadow: 0px 0px 20px var(--shadow-color);
+    border-radius: 15px;
+    margin-top: 4%;
+}
+
+.theme-neon .chat-messages {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.theme-neon .resize-bar-bottom{
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #39FF14 0%, #ff1493 33%, #0ff 66%, #39FF14 100%); /* Gradiente neon */
+    background-size: 400% 100%;
+    animation: continuous-pulse 4s linear infinite; /* Animação de pulso */
+
+}
+
+@keyframes continuous-pulse {
+    0% {
+        background-position: 300% 0%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+.theme-neon .theme-button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 2px solid var(--button-text);
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px var(--button-text);
+    box-shadow: 
+        0 0 10px rgba(57, 255, 20, 0.3),
+        inset 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.theme-neon .user-message {
+    background-color: var(--user-message-bg);
+    color: var(--user-message-color);
+    border: 1px solid var(--user-message-color);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+.theme-neon .gpt-message {
+    background-color: var(--gpt-message-bg);
+    color: var(--gpt-message-color);
+    border: 1px solid var(--gpt-message-color);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+@keyframes neonPulse {
+    from {
+        text-shadow: 
+            0 0 10px var(--text-color),
+            0 0 20px var(--text-color),
+            0 0 30px var(--text-color);
+    }
+    to {
+        text-shadow: 
+            0 0 20px var(--text-color),
+            0 0 30px var(--text-color),
+            0 0 40px var(--text-color),
+            0 0 50px var(--text-color);
+    }
+}
+.theme-neon .theme-button:hover {
+    background: rgba(185, 63, 144, 0.2);
+    box-shadow: 
+        0 0 20px rgba(57, 255, 20, 0.5),
+        inset 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+.theme-neon .game-info {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    border-radius: 15px;
+    padding: 20px;
+    color: #0ff;
+    margin: 20px 10%;
+}
+
+.theme-neon .game-info h2,
+.theme-neon .game-info h3 {
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    margin-bottom: 15px;
+}
+
+.theme-neon .price-comparison {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0ff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.theme-neon .price-comparison th {
+    background-color: rgba(57, 255, 20, 0.2);
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    padding: 12px;
+    border: 1px solid #39FF14;
+}
+
+.theme-neon .price-comparison td {
+    border: 1px solid #0ff;
+    color: #0ff;
+    padding: 12px;
+}
+
+.theme-neon .loading-indicator {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+.theme-neon .chat-input-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.theme-neon .chat-input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #0ff;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+.theme-neon .chat-input:focus {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Alterações no botão new-search-button para o tema Neon */
+
+.theme-neon .new-search-button {
+    background-color: rgba(0, 255, 255, 0.1); /* Fundo translúcido neon */
+    color: #39FF14; /* Cor do texto em verde neon */
+    border: 2px solid #39FF14; /* Borda verde neon */
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    transition: all 0.3s ease; /* Transição suave para efeitos */
+    cursor: pointer; 
+    text-shadow: 0 0 10px #39FF14; 
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3), inset 0 0 10px rgba(57, 255, 20, 0.3); /* Efeito de brilho neon */
+}
+
+/* Efeito de hover */
+.theme-neon .new-search-button:hover {
+    background-color: rgba(57, 255, 20, 0.2); /* Fundo mais forte quando passar o mouse */
+    box-shadow: 
+        0 0 20px rgba(57, 255, 20, 0.5), /* Brilho mais intenso */
+        inset 0 0 20px rgba(57, 255, 20, 0.5); /* Brilho interno */
+    transform: translateY(-2px); /* Levantar o botão ao passar o mouse */
+}
+
+.theme-neon .send-button {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: #39FF14;
+    border: 2px solid #39FF14;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-shadow: 0 0 10px #39FF14;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3), inset 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.theme-neon .send-button:hover {
+    background-color: rgba(57, 255, 20, 0.2);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5), inset 0 0 20px rgba(57, 255, 20, 0.5);
+    transform: translateY(-2px);
+}

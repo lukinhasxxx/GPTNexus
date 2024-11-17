@@ -1,40 +1,43 @@
+:root {
+  --app-background: #282c34; /* Mantém a cor do fundo */
+  --header-background: var(--app-background);
+  --chat-background: rgba(255, 255, 255, 0.1);
+  --button-background: #28a745;
+  --button-hover: #218838;
+  --text-color: white;
+  --link-color: #61dafb;
+  --min-height: 100vh;
+}
+
 .App {
+  background-color: var(--app-background); /* Adicione esta linha */
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  margin: 0; /* Modifique de 'margin: 0 5%' para 'margin: 0' */
+}
+
+.App-header {
+  background-color: var(--header-background);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chat-window {
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0 10%; /* Mantém margem lateral apenas para o chat */
+  margin-bottom: 10px;
+  margin-top:5%;
+  background-color: var(--chat-background);
 }
 
 .new-search-button {
@@ -50,6 +53,48 @@
 }
 
 .new-search-button:hover {
-  background-color: #218838; /* Verde escuro */
+  background-color: var(--button-hover);
+}
+/* Estilos globais para os botões de tema */
+.theme-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+  padding: 15px 0;
+}
+/* Transições de tema para o App */
+body, .App {
+  transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cores de fundo e texto */
+  
+}
+
+/* Transição dos botões ao mudar de tema */
+.theme-button {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.3s ease; /* Suaviza cor e efeito ao clicar */
+}
+
+/* Efeito suave no fundo da janela de chat */
+.chat-container {
+  transition: background-color 0.4s ease, border 0.3s ease;
+}
+/* Ajustando a faixa de fundo dos botões */
+.theme-buttons {
+  background-color: transparent; /* Sem faixa de fundo */
+  padding: 10px;  /* Ajusta o espaçamento */
+}
+
+/* Botões com bordas arredondadas, sem a faixa de fundo */
+.theme-button {
+  border: 2px solid transparent;  /* Remover borda visível, mas manter arredondada */
+  background-color: transparent;  /* Fundo transparente */
+  padding: 12px 25px;  /* Ajusta o tamanho */
+  color: #fff;
+  transition: all 0.3s ease;  /* Transição suave ao interagir */
+}
+
+.theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);  /* Efeito hover */
+  border-color: #ffffff;
+  transform: scale(1.10);  /* Aumenta levemente ao passar o mouse */
 }
 
