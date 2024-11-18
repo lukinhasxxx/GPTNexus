@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import './themes/originalTheme.css';
-import './themes/neonTheme.css'; //temas neon dark etc que serao implementados
+import './themes/neonTheme.css';
 import './themes/lightSkyTheme.css';
 import './themes/darkTheme.css';
 import './themes/8bitTheme.css';
 import './themes/sakuraTheme.css';
 import ChatApp from "./ChatApp";
+import ChatSidebar from "./components/ChatSidebar";
 import { ThemeProvider, useTheme } from './ThemeContext';
 
 function ThemeButtons() {
@@ -29,42 +30,38 @@ function ThemeButtons() {
                 Tema 8-bit
             </button>
             <button className="theme-button sakura" onClick={() => toggleTheme('sakura')}>
-             Tema Sakura
+                Tema Sakura
             </button>
-
         </div>
     );
 }
 
 function App() {
+    const handleHistorySelect = (logEntry) => {
+        console.log('Carregando conversa:', logEntry);
+    };
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!document.querySelector('.theme-sakura')) return;
-            
+
             const windowWidth = window.innerWidth;
             const mouseX = e.clientX;
-            
-            // Calcula a porcentagem da posição do mouse na tela
+
             const mousePercent = (mouseX / windowWidth) * 100;
-            
-            // Calcula o deslocamento baseado na posição do mouse
-            // Quando o mouse está no centro (50%), o deslocamento é 0
             const offset = (mousePercent - 50) * 0.7;
-            
-            // Aplica o efeito parallax nas imagens
+
             const sakuraImage = document.querySelector('.sakura-image');
             const fujiImage = document.querySelector('.fuji-image');
-            
+
             if (sakuraImage && fujiImage) {
-                // Move a sakura na direção oposta ao mouse com menos intensidade
                 sakuraImage.style.transform = `translateX(${-offset * 1.2}px)`;
-                // Move o Fuji na mesma direção do mouse com mais intensidade
                 fujiImage.style.transform = `translateX(${offset * 0.8}px)`;
             }
         };
 
         window.addEventListener('mousemove', handleMouseMove);
-        
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
@@ -73,8 +70,11 @@ function App() {
     return (
         <ThemeProvider>
             <div className="App">
-                <ThemeButtons />
-                <ChatApp />
+                <ChatSidebar onSelectHistory={handleHistorySelect} />
+                <div className="main-content">
+                    <ThemeButtons />
+                    <ChatApp />
+                </div>
             </div>
         </ThemeProvider>
     );
